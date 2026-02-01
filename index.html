@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Valentine’s Day ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #ff4b5c;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 20px;
+      border: none;
+      background: #ff4b5c;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+      margin-top: 10px;
+      color: #ff4b5c;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Happy Valentine’s Day ❤️</h1>
+
+    <p>Hi <strong>[Geet]</strong>,</p>
+
+    <button onclick="toggle('msg1')">💌 Read something I wanted to say</button>
+    <p id="msg1" class="hidden">
+      I made this because you genuinely stood out to me.
+      Even from a distance, you felt rare and worth noticing.
+    </p>
+
+    <button onclick="toggle('msg2')">🌸 Why I admire you</button>
+    <p id="msg2" class="hidden">
+      I admire the way you carry yourself — calm, graceful,
+      and naturally beautiful without trying.
+    </p>
+
+    <button onclick="toggle('msg3')">✨ What makes you special</button>
+    <p id="msg3" class="hidden">
+      There are many beautiful people in the world,
+      but the way you’re beautiful feels entirely your own.
+      To me, no one else compares.
+    </p>
+
+    <button onclick="toggle('msg4')">💖 One honest truth</button>
+    <p id="msg4" class="hidden">
+      I don’t expect anything from you.
+      I just wanted to be honest about how deeply I admire you.
+    </p>
+
+    <button onclick="toggle('msg5')">🌹 A quiet compliment</button>
+    <p id="msg5" class="hidden">
+      You are genuinely beautiful — in a way that stays
+      in someone’s mind long after the moment passes.
+    </p>
+
+    <p style="margin-top:20px;">— <strong>[Your Name]</strong></p>
+  </div>
+
+  <script>
+    function toggle(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+</body>
+</html>
