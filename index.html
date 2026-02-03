@@ -25,13 +25,29 @@
       width: 90%;
       color: white;
       box-shadow: 0 30px 60px rgba(0,0,0,0.25);
-      animation: fadeIn 2s ease;
+      text-align: center;
+      animation: fadeIn 1.5s ease;
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      font-weight: normal;
+    button {
+      display: block;
+      width: 100%;
+      margin: 12px 0;
+      padding: 12px;
+      border-radius: 25px;
+      border: none;
+      background: rgba(255,255,255,0.25);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: rgba(255,255,255,0.4);
+    }
+
+    .hidden {
+      display: none;
     }
 
     p {
@@ -41,11 +57,11 @@
       line-height: 1.6;
     }
 
-    p:nth-child(2) { animation-delay: 1s; }
-    p:nth-child(3) { animation-delay: 2.5s; }
-    p:nth-child(4) { animation-delay: 4s; }
-    p:nth-child(5) { animation-delay: 5.5s; }
-    p:nth-child(6) { animation-delay: 7s; }
+    p:nth-child(1) { animation-delay: 0.5s; }
+    p:nth-child(2) { animation-delay: 2s; }
+    p:nth-child(3) { animation-delay: 3.5s; }
+    p:nth-child(4) { animation-delay: 5s; }
+    p:nth-child(5) { animation-delay: 6.5s; }
 
     .sign {
       text-align: right;
@@ -66,13 +82,23 @@
 
 <body>
 
-  <div class="card">
-    <h1>Happy Valentine’s Day ❤️</h1>
+  <!-- FIRST SCREEN -->
+  <div class="card" id="choices">
+    <h2>Choose one 💗</h2>
 
-    <p>Hi Kaisi Ho [Geet],</p>
+    <button onclick="showCard()">💌 Read something heartfelt</button>
+    <button onclick="showCard()">🌸 Something gentle</button>
+    <button onclick="showCard()">🌹 Something honest</button>
+  </div>
+
+  <!-- VALENTINE CARD -->
+  <div class="card hidden" id="loveCard">
+    <h2>Happy Valentine’s Day ❤️</h2>
+
+    <p>Hi [Geet Rani],</p>
 
     <p>
-      I don’t know the perfect way to say this, but I wanted to be honest.
+      I wanted to say this in a calm and respectful way.
       You are incredibly beautiful — in a way that feels rare and unforgettable.
     </p>
 
@@ -82,16 +108,19 @@
     </p>
 
     <p>
-      I’m not asking for anything from you. This is simply me saying something
-      I’ve held quietly — because keeping it unsaid felt wrong.
+      I’m not asking for anything from you.
+      I just didn’t want this feeling to stay unspoken.
     </p>
 
-    <p>
-      I hope this makes you smile, even just a little.
-    </p>
-
-    <p class="sign">— [Vishal]</p>
+    <p class="sign">— [Name/p>
   </div>
+
+  <script>
+    function showCard() {
+      document.getElementById("choices").style.display = "none";
+      document.getElementById("loveCard").style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
