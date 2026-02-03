@@ -9,6 +9,7 @@
     body {
       margin: 0;
       height: 100vh;
+      overflow: hidden;
       background: radial-gradient(circle at top, #ff758c, #ff7eb3);
       display: flex;
       justify-content: center;
@@ -17,8 +18,8 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(12px);
       padding: 30px;
       border-radius: 25px;
       max-width: 420px;
@@ -26,7 +27,8 @@
       color: white;
       box-shadow: 0 30px 60px rgba(0,0,0,0.25);
       text-align: center;
-      animation: fadeIn 1.5s ease;
+      animation: fadeIn 1s ease;
+      z-index: 2;
     }
 
     button {
@@ -36,14 +38,14 @@
       padding: 12px;
       border-radius: 25px;
       border: none;
-      background: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.3);
       color: white;
       font-size: 16px;
       cursor: pointer;
     }
 
     button:hover {
-      background: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.45);
     }
 
     .hidden {
@@ -57,15 +59,9 @@
       line-height: 1.6;
     }
 
-    p:nth-child(1) { animation-delay: 0.5s; }
-    p:nth-child(2) { animation-delay: 2s; }
-    p:nth-child(3) { animation-delay: 3.5s; }
-    p:nth-child(4) { animation-delay: 5s; }
-    p:nth-child(5) { animation-delay: 6.5s; }
-
-    .sign {
-      text-align: right;
-      font-style: italic;
+    .back {
+      margin-top: 20px;
+      background: rgba(0,0,0,0.25);
     }
 
     @keyframes fadeIn {
@@ -77,48 +73,97 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* HEARTS */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 6s linear forwards;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- FIRST SCREEN -->
+  <!-- MUSIC -->
+  <audio id="music" loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/27/audio_0f5a7a2c91.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- CHOICES -->
   <div class="card" id="choices">
     <h2>Choose one 💗</h2>
-
-    <button onclick="showCard()">💌 Read something heartfelt</button>
-    <button onclick="showCard()">🌸 Something gentle</button>
-    <button onclick="showCard()">🌹 Something honest</button>
+    <button onclick="openCard('one')">💌 Read something heartfelt</button>
+    <button onclick="openCard('two')">🌸 Something gentle</button>
+    <button onclick="openCard('three')">🌹 Something honest</button>
   </div>
 
-  <!-- VALENTINE CARD -->
-  <div class="card hidden" id="loveCard">
-    <h2>Happy Valentine’s Day ❤️</h2>
-
-    <p>Hi [Geet Rani],</p>
-
-    <p>
-      I wanted to say this in a calm and respectful way.
-      You are incredibly beautiful — in a way that feels rare and unforgettable.
-    </p>
-
-    <p>
-      There are many beautiful people in this world, but the way you’re beautiful
-      feels entirely your own. No one else leaves the same impression you do.
-    </p>
-
-    <p>
-      I’m not asking for anything from you.
-      I just didn’t want this feeling to stay unspoken.
-    </p>
-
-    <p class="sign">— [Name/p>
+  <!-- CARD -->
+  <div class="card hidden" id="card">
+    <div id="text"></div>
+    <button class="back" onclick="goBack()">⬅ Go back</button>
   </div>
 
   <script>
-    function showCard() {
+    const messages = {
+      one: `
+        <p>Hi [Geet Rani],</p>
+        <p>You are incredibly beautiful — in a way that feels rare and unforgettable.
+        The kind of beauty that doesn’t try, yet stays in someone’s mind.</p>
+        <p>To me, no one else compares. Not because others aren’t beautiful,
+        but because the way you are is entirely your own.</p>
+      `,
+      two: `
+        <p>Hi [Geet Rani],</p>
+        <p>There’s something calm and gentle about you that stands out.
+        Just seeing you makes moments feel softer and lighter.</p>
+        <p>This is simply appreciation — quiet, respectful,
+        and meant to bring a small smile.</p>
+      `,
+      three: `
+        <p>Hi [Geet Rani],</p>
+        <p>I wanted to be honest without asking anything in return.
+        I admire you deeply, and I didn’t want that truth to stay unspoken.</p>
+        <p>That’s all this is — honesty, nothing more,
+        nothing you owe.</p>
+      `
+    };
+
+    function openCard(type) {
       document.getElementById("choices").style.display = "none";
-      document.getElementById("loveCard").style.display = "block";
+      document.getElementById("card").style.display = "block";
+      document.getElementById("text").innerHTML = messages[type];
+
+      const music = document.getElementById("music");
+      if (music.paused) music.play();
+
+      startHearts();
+    }
+
+    function goBack() {
+      document.getElementById("card").style.display = "none";
+      document.getElementById("choices").style.display = "block";
+    }
+
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (16 + Math.random() * 20) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+      }, 500);
     }
   </script>
 
