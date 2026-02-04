@@ -139,7 +139,6 @@
 <!-- MESSAGE CARD -->
 <div class="card hidden" id="card">
   <div id="text"></div>
-  <button onclick="enableSound()">🔊 Enable Sound</button>
   <button class="back" onclick="goBack()">⬅ Go back</button>
 </div>
 
@@ -147,8 +146,8 @@
   const messages = {
     one: `
       <p>Hi [Geet Rani],</p>
-      <p>I don’t know the perfect way to say this, but you are incredibly beautiful.
-      Not in a loud way — in a way that quietly stays with someone.</p>
+      <p>You are incredibly beautiful — in a way that feels rare and unforgettable.
+      The kind of beauty that quietly stays with someone.</p>
       <p>You stand out to me in a way I haven’t felt before.</p>
       <p>No expectations. I just wanted to be honest.</p>
     `,
@@ -161,11 +160,13 @@
     `,
     three: `
       <p>Hi [Geet Rani],</p>
-      <p>I Name you. Quietly and sincerely.</p>
+      <p>I admire you. Quietly and sincerely.</p>
       <p>I didn’t want this truth to stay unsaid.</p>
       <p>That’s all this is — honesty, without pressure.</p>
     `
   };
+
+  let heartsStarted = false;
 
   function openCard(type) {
     document.getElementById("choices").style.display = "none";
@@ -175,21 +176,17 @@
     const music = document.getElementById("music");
     music.volume = 0.3;
     music.muted = false;
-    music.play().catch(()=>{});
+    music.play().catch(() => {});
 
-    startHearts();
+    if (!heartsStarted) {
+      startHearts();
+      heartsStarted = true;
+    }
   }
 
   function goBack() {
     document.getElementById("card").style.display = "none";
     document.getElementById("choices").style.display = "block";
-  }
-
-  function enableSound() {
-    const music = document.getElementById("music");
-    music.volume = 0.3;
-    music.muted = false;
-    music.play();
   }
 
   function startHearts() {
