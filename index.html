@@ -1,177 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Valentine’s Day ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Happy Valentine’s Day 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Georgia", serif;
-  background: linear-gradient(
-    135deg,
-    #ff9a9e 0%,
-    #fad0c4 50%,
-    #fbc2eb 100%
-  );
-    }
-    }
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Georgia", serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+  }
 
-    .card {
-      background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(12px);
-      padding: 30px;
-      border-radius: 25px;
-      max-width: 420px;
-      width: 90%;
-      color: white;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
-      text-align: center;
-      animation: fadeIn 1s ease;
-      z-index: 2;
-    }
+  .card {
+    position: relative;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 32px;
+    border-radius: 30px;
+    max-width: 420px;
+    width: 90%;
+    color: white;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.18);
+    animation: fadeIn 1.2s ease;
+    z-index: 2;
+  }
 
-    button {
-      display: block;
-      width: 100%;
-      margin: 12px 0;
-      padding: 12px;
-      border-radius: 25px;
-      border: none;
-      background: rgba(255,255,255,0.3);
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    box-shadow: 0 0 60px rgba(255, 182, 193, 0.35);
+    z-index: -1;
+  }
 
-    button:hover {
-      background: rgba(255,255,255,0.45);
-    }
+  h2 {
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
 
-    .hidden {
-      display: none;
-    }
+  button {
+    width: 100%;
+    margin: 14px 0;
+    padding: 14px 18px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(
+      to right,
+      rgba(255,255,255,0.35),
+      rgba(255,255,255,0.2)
+    );
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  }
 
-    p {
-      opacity: 0;
-      animation: reveal 1.5s ease forwards;
-      margin-bottom: 15px;
-      line-height: 1.6;
-    }
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+  }
 
-    .back {
-      margin-top: 20px;
-      background: rgba(0,0,0,0.25);
-    }
+  button:active {
+    transform: scale(0.97);
+  }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+  .hidden {
+    display: none;
+  }
 
-    @keyframes reveal {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  p {
+    opacity: 0;
+    animation: reveal 1.4s ease forwards;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
 
-    /* HEARTS */
-    .heart {
-      position: absolute;
-      bottom: -20px;
-      font-size: 20px;
-      animation: floatUp 6s linear forwards;
-      opacity: 0.8;
-      z-index: 1;
-    }
+  p:nth-child(1){animation-delay:0.4s}
+  p:nth-child(2){animation-delay:1.8s}
+  p:nth-child(3){animation-delay:3.2s}
+  p:nth-child(4){animation-delay:4.6s}
 
-    @keyframes floatUp {
-      from { transform: translateY(0); opacity: 1; }
-      to { transform: translateY(-120vh); opacity: 0; }
-    }
-  </style>
+  .back {
+    margin-top: 20px;
+    background: rgba(0,0,0,0.25);
+  }
+
+  .heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 18px;
+    animation: floatUp 6s linear forwards;
+    opacity: 0.8;
+    z-index: 1;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-120vh); opacity: 0; }
+  }
+</style>
 </head>
 
 <body>
 
-  <!-- MUSIC -->
-  <audio id="music" loop>
-    <source src="Ed Sheeran - Perfect(M4A_128K).mp3" type="audio/mpeg">
-  </audio>
+<audio id="music" loop preload="auto">
+  <source src="..." type="audio/mpeg">
+</audio>
 
-  <!-- CHOICES -->
-  <div class="card" id="choices">
-    <h2>Choose one 💗</h2>
-    <button onclick="openCard('one')">💌 Read something heartfelt</button>
-    <button onclick="openCard('two')">🌸 Something gentle</button>
-    <button onclick="openCard('three')">🌹 Something honest</button>
-  </div>
+<!-- FIRST SCREEN -->
+<div class="card" id="choices">
+  <h2>Just something I wanted to share 💗</h2>
 
-  <!-- CARD -->
-  <div class="card hidden" id="card">
-    <div id="text"></div>
-    <button class="back" onclick="goBack()">⬅ Go back</button>
-  </div>
+  <button onclick="openCard('one')">💌 Read something from my heart</button>
+  <button onclick="openCard('two')">🌸 Something gentle</button>
+  <button onclick="openCard('three')">🌹 Something honest</button>
+</div>
 
-  <script>
-    const messages = {
-      one: `
-        <p>Hi [Geet Rani],</p>
-        <p>You are incredibly beautiful — in a way that feels rare and unforgettable.
-        The kind of beauty that doesn’t try, yet stays in someone’s mind.</p>
-        <p>To me, no one else compares. Not because others aren’t beautiful,
-        but because the way you are is entirely your own.</p>
-      `,
-      two: `
-        <p>Hi [Geet Rani],</p>
-        <p>There’s something calm and gentle about you that stands out.
-        Just seeing you makes moments feel softer and lighter.</p>
-        <p>This is simply appreciation — quiet, respectful,
-        and meant to bring a small smile.</p>
-      `,
-      three: `
-        <p>Hi [Geet Rani],</p>
-        <p>I wanted to be honest without asking anything in return.
-        I admire you deeply, and I didn’t want that truth to stay unspoken.</p>
-        <p>That’s all this is — honesty, nothing more,
-        nothing you owe.</p>
-      `
-    };
+<!-- MESSAGE CARD -->
+<div class="card hidden" id="card">
+  <div id="text"></div>
+  <button onclick="enableSound()">🔊 Enable Sound</button>
+  <button class="back" onclick="goBack()">⬅ Go back</button>
+</div>
 
-    function openCard(type) {
-      document.getElementById("choices").style.display = "none";
-      document.getElementById("card").style.display = "block";
-      document.getElementById("text").innerHTML = messages[type];
+<script>
+  const messages = {
+    one: `
+      <p>Hi [Geet Rani],</p>
+      <p>I don’t know the perfect way to say this, but you are incredibly beautiful.
+      Not in a loud way — in a way that quietly stays with someone.</p>
+      <p>You stand out to me in a way I haven’t felt before.</p>
+      <p>No expectations. I just wanted to be honest.</p>
+    `,
+    two: `
+      <p>Hi [Geet Rani],</p>
+      <p>There’s something calm and gentle about you that feels rare.
+      Just seeing you makes moments feel softer.</p>
+      <p>This is simply appreciation — nothing you owe.</p>
+      <p>I hope this made you smile, even a little.</p>
+    `,
+    three: `
+      <p>Hi [Geet Rani],</p>
+      <p>I Name you. Quietly and sincerely.</p>
+      <p>I didn’t want this truth to stay unsaid.</p>
+      <p>That’s all this is — honesty, without pressure.</p>
+    `
+  };
 
-      const music = document.getElementById("music");
-      if (music.paused) music.play();
+  function openCard(type) {
+    document.getElementById("choices").style.display = "none";
+    document.getElementById("card").style.display = "block";
+    document.getElementById("text").innerHTML = messages[type];
 
-      startHearts();
-    }
+    const music = document.getElementById("music");
+    music.volume = 0.3;
+    music.muted = false;
+    music.play().catch(()=>{});
 
-    function goBack() {
-      document.getElementById("card").style.display = "none";
-      document.getElementById("choices").style.display = "block";
-    }
+    startHearts();
+  }
 
-    function startHearts() {
-      setInterval(() => {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerText = "❤️";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = (16 + Math.random() * 20) + "px";
-        document.body.appendChild(heart);
+  function goBack() {
+    document.getElementById("card").style.display = "none";
+    document.getElementById("choices").style.display = "block";
+  }
 
-        setTimeout(() => heart.remove(), 6000);
-      }, 500);
-    }
-  </script>
+  function enableSound() {
+    const music = document.getElementById("music");
+    music.volume = 0.3;
+    music.muted = false;
+    music.play();
+  }
+
+  function startHearts() {
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (14 + Math.random() * 20) + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 450);
+  }
+</script>
 
 </body>
 </html>
