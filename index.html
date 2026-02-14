@@ -22,7 +22,7 @@
     background: rgba(255,255,255,0.25);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    padding: 32px;
+    padding: 34px;
     border-radius: 30px;
     max-width: 420px;
     width: 90%;
@@ -38,19 +38,19 @@
     position: absolute;
     inset: 0;
     border-radius: 30px;
-    box-shadow: 0 0 60px rgba(255, 182, 193, 0.35);
+    box-shadow: 0 0 60px rgba(255,182,193,0.35);
     z-index: -1;
   }
 
   h2 {
     font-weight: normal;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 
   button {
     width: 100%;
-    margin: 14px 0;
-    padding: 14px 18px;
+    margin-top: 18px;
+    padding: 15px 20px;
     border-radius: 30px;
     border: none;
     background: linear-gradient(
@@ -59,7 +59,7 @@
       rgba(255,255,255,0.2)
     );
     color: white;
-    font-size: 16px;
+    font-size: 17px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 10px 20px rgba(0,0,0,0.12);
@@ -89,11 +89,6 @@
   p:nth-child(2){animation-delay:1.8s}
   p:nth-child(3){animation-delay:3.2s}
   p:nth-child(4){animation-delay:4.6s}
-
-  .back {
-    margin-top: 20px;
-    background: rgba(0,0,0,0.25);
-  }
 
   .heart {
     position: absolute;
@@ -128,50 +123,30 @@
 </audio>
 
 <!-- FIRST SCREEN -->
-<div class="card" id="choices">
+<div class="card" id="start">
   <h2>Just something I wanted to share 💗</h2>
-
-  <button onclick="openCard('one')">💌 Read something from my heart</button>
-  <button onclick="openCard('two')">🌸 Something gentle</button>
-  <button onclick="openCard('three')">🌹 Something honest</button>
+  <button onclick="openMessage()">What I feel for you 💝</button>
 </div>
 
-<!-- MESSAGE CARD -->
-<div class="card hidden" id="card">
-  <div id="text"></div>
-  <button class="back" onclick="goBack()">⬅ Go back</button>
+<!-- MESSAGE -->
+<div class="card hidden" id="message">
+  <div id="text">
+    <p>Hi [Geet Rani],</p>
+    <p>I’ve never really known how to begin this, but I wanted to be honest in the
+    simplest way I can.</p>
+    <p>You are incredibly beautiful — not just in how you look, but in the quiet way
+    you stand out without trying. To me, no one else feels quite the same.</p>
+    <p>This isn’t something I expect anything from. I just didn’t want this feeling
+    to stay unspoken.</p>
+  </div>
 </div>
 
 <script>
-  const messages = {
-    one: `
-      <p>Hi [Geet Rani],</p>
-      <p>You are incredibly beautiful — in a way that feels rare and unforgettable.
-      The kind of beauty that quietly stays with someone.</p>
-      <p>You stand out to me in a way I haven’t felt before.</p>
-      <p>No expectations. I just wanted to be honest.</p>
-    `,
-    two: `
-      <p>Hi [Geet Rani],</p>
-      <p>There’s something calm and gentle about you that feels rare.
-      Just seeing you makes moments feel softer.</p>
-      <p>This is simply appreciation — nothing you owe.</p>
-      <p>I hope this made you smile, even a little.</p>
-    `,
-    three: `
-      <p>Hi [Geet Rani],</p>
-      <p>I admire you. Quietly and sincerely.</p>
-      <p>I didn’t want this truth to stay unsaid.</p>
-      <p>That’s all this is — honesty, without pressure.</p>
-    `
-  };
-
   let heartsStarted = false;
 
-  function openCard(type) {
-    document.getElementById("choices").style.display = "none";
-    document.getElementById("card").style.display = "block";
-    document.getElementById("text").innerHTML = messages[type];
+  function openMessage() {
+    document.getElementById("start").style.display = "none";
+    document.getElementById("message").style.display = "block";
 
     const music = document.getElementById("music");
     music.volume = 0.3;
@@ -182,11 +157,6 @@
       startHearts();
       heartsStarted = true;
     }
-  }
-
-  function goBack() {
-    document.getElementById("card").style.display = "none";
-    document.getElementById("choices").style.display = "block";
   }
 
   function startHearts() {
