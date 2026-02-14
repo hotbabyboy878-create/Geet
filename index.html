@@ -2,102 +2,132 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Valentine ❤️</title>
+<title>Happy Valentine’s Day ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Georgia", serif;
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-}
+  body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Georgia", serif;
+    background: linear-gradient(
+      135deg,
+      #ffdde1,
+      #ee9ca7
+    );
+  }
 
-.card {
-  position: relative;
-  background: rgba(255,255,255,0.35);
-  backdrop-filter: blur(16px);
-  padding: 36px;
-  border-radius: 32px;
-  max-width: 420px;
-  width: 90%;
-  text-align: center;
-  color: #6b1f33;
-  box-shadow: 0 30px 60px rgba(150,50,80,0.25);
-  animation: fadeIn 1s ease;
-  z-index: 2;
-}
+  .card {
+    position: relative;
+    background: rgba(255,255,255,0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 36px;
+    border-radius: 32px;
+    max-width: 420px;
+    width: 90%;
+    color: #6b1f33;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(150,50,80,0.25);
+    animation: fadeIn 1.2s ease;
+    z-index: 2;
+  }
 
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 32px;
-  box-shadow: 0 0 80px rgba(255,105,135,0.45);
-  z-index: -1;
-}
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 32px;
+    box-shadow: 0 0 80px rgba(255,105,135,0.45);
+    z-index: -1;
+  }
 
-h1 {
-  font-weight: normal;
-  margin-bottom: 10px;
-  color: #7a2038;
-}
+  h2 {
+    font-weight: normal;
+    margin-bottom: 26px;
+    color: #7a2038;
+  }
 
-h2 {
-  font-weight: normal;
-  margin-bottom: 24px;
-}
+  button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px 22px;
+    border-radius: 32px;
+    border: none;
+    background: linear-gradient(
+      to right,
+      #ff6a88,
+      #ff99ac
+    );
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 12px 24px rgba(255,90,120,0.35);
+  }
 
-p {
-  line-height: 1.7;
-  font-size: 17px;
-}
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 36px rgba(255,90,120,0.45);
+  }
 
-button {
-  margin-top: 20px;
-  padding: 14px 22px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(to right, #ff6a88, #ff99ac);
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 12px 24px rgba(255,90,120,0.35);
-}
+  button:active {
+    transform: scale(0.97);
+  }
 
-button:hover {
-  transform: translateY(-2px);
-}
+  .back {
+    margin-top: 28px;
+    background: linear-gradient(
+      to right,
+      #d6456d,
+      #f27c97
+    );
+  }
 
-.secondary {
-  background: linear-gradient(to right, #c94b6a, #f08aa2);
-}
+  .hidden {
+    display: none;
+  }
 
-.hidden {
-  display: none;
-}
+  p {
+    opacity: 0;
+    animation: reveal 1.4s ease forwards;
+    line-height: 1.75;
+    margin-bottom: 18px;
+    color: #5a1a2c;
+  }
 
-.heart {
-  position: absolute;
-  bottom: -20px;
-  animation: floatUp 6s linear forwards;
-  opacity: 0.8;
-}
+  p:nth-child(1){animation-delay:0.4s}
+  p:nth-child(2){animation-delay:1.8s}
+  p:nth-child(3){animation-delay:3.2s}
+  p:nth-child(4){animation-delay:4.6s}
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
+  .heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 6s linear forwards;
+    opacity: 0.7;
+    z-index: 1;
+  }
 
-@keyframes floatUp {
-  from { transform: translateY(0); }
-  to { transform: translateY(-120vh); opacity: 0; }
-}
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(0); opacity: 0.9; }
+    to { transform: translateY(-120vh); opacity: 0; }
+  }
 </style>
 </head>
 
@@ -108,70 +138,60 @@ button:hover {
 </audio>
 
 <!-- FIRST SCREEN -->
-<div class="card" id="question">
-  <h1>Hi Geet Rani 💗</h1>
-  <h2>Will you be mine?</h2>
-  <button onclick="yesClicked()">Yes ❤️</button>
-  <button class="secondary" onclick="noClicked()">No 💔</button>
+<div class="card" id="start">
+  <h2>Happy Valentine’s Day 💗</h2>
+  <button onclick="openMessage()">What I feel for you 💝</button>
 </div>
 
 <!-- MESSAGE SCREEN -->
 <div class="card hidden" id="message">
-  <p id="text"></p>
-  <button onclick="nextText()">Next ➜</button>
+  <div id="text">
+    <p>Hi [Geet Rani],</p>
+    <p>Mujhe nhi pata ke mujhe kya kehna chahiye abhi kyuke tumhe shayad pata hai ke tum mere liye kya ho. Yeh mera propose krne ka tareeka hai,
+I hope ke tumhe pasand aayega aur tum iss baar na nahi kahogi</p>
+    <p>You are incredibly beautiful — not just in how you look, but in the quiet way
+    you stand out without trying. To me, no one else feels quite the same.</p>
+    <p>This isn’t something I expect anything from. I just didn’t want this feeling
+    to stay unspoken.</p>
+  </div>
+
+  <button class="back" onclick="goBack()">⬅ Go back</button>
 </div>
 
 <script>
-const texts = [
-  "I don’t know when it started, but somehow you became someone I think about more than I should.",
-  "There’s something about you — the way you exist so effortlessly — that feels rare and beautiful.",
-  "To me, no one else compares. Not even close.",
-  "I don’t expect anything from this… I just wanted you to know what you mean to me."
-];
+  let heartsStarted = false;
 
-let index = 0;
-let heartsStarted = false;
+  function openMessage() {
+    document.getElementById("start").style.display = "none";
+    document.getElementById("message").style.display = "block";
 
-function yesClicked() {
-  document.getElementById("question").classList.add("hidden");
-  document.getElementById("message").classList.remove("hidden");
-  document.getElementById("text").innerText = texts[index];
-  playMusic();
-  startHearts();
-}
+    const music = document.getElementById("music");
+    music.volume = 0.3;
+    music.muted = false;
+    music.play().catch(() => {});
 
-function nextText() {
-  index++;
-  if (index < texts.length) {
-    document.getElementById("text").innerText = texts[index];
-  } else {
-    document.getElementById("text").innerText = "Happy Valentine’s Day ❤️";
+    if (!heartsStarted) {
+      startHearts();
+      heartsStarted = true;
+    }
   }
-}
 
-function noClicked() {
-  alert("Sorry, you can’t say no 😌");
-}
+  function goBack() {
+    document.getElementById("message").style.display = "none";
+    document.getElementById("start").style.display = "block";
+  }
 
-function playMusic() {
-  const music = document.getElementById("music");
-  music.volume = 0.3;
-  music.play().catch(() => {});
-}
-
-function startHearts() {
-  if (heartsStarted) return;
-  heartsStarted = true;
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerText = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (16 + Math.random() * 20) + "px";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-  }, 400);
-}
+  function startHearts() {
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (16 + Math.random() * 20) + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 420);
+  }
 </script>
 
 </body>
