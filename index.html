@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Valentine’s Day 💗</title>
+<title>Happy Valentine’s Day ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -14,21 +14,25 @@
     justify-content: center;
     align-items: center;
     font-family: "Georgia", serif;
-    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    background: linear-gradient(
+      135deg,
+      #ffdde1,
+      #ee9ca7
+    );
   }
 
   .card {
     position: relative;
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.35);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    padding: 34px;
-    border-radius: 28px;
+    padding: 36px;
+    border-radius: 32px;
     max-width: 420px;
     width: 90%;
-    color: #f5f5f5;
+    color: #6b1f33;
     text-align: center;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+    box-shadow: 0 30px 60px rgba(150,50,80,0.25);
     animation: fadeIn 1.2s ease;
     z-index: 2;
   }
@@ -37,38 +41,38 @@
     content: "";
     position: absolute;
     inset: 0;
-    border-radius: 28px;
-    box-shadow: 0 0 80px rgba(255,180,200,0.25);
+    border-radius: 32px;
+    box-shadow: 0 0 80px rgba(255,105,135,0.45);
     z-index: -1;
   }
 
   h2 {
     font-weight: normal;
     margin-bottom: 26px;
-    color: #ffffff;
+    color: #7a2038;
   }
 
   button {
     width: 100%;
-    margin-top: 18px;
-    padding: 15px 20px;
-    border-radius: 30px;
+    margin-top: 20px;
+    padding: 16px 22px;
+    border-radius: 32px;
     border: none;
     background: linear-gradient(
       to right,
-      rgba(255,255,255,0.25),
-      rgba(255,255,255,0.1)
+      #ff6a88,
+      #ff99ac
     );
-    color: #ffffff;
+    color: white;
     font-size: 17px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+    box-shadow: 0 12px 24px rgba(255,90,120,0.35);
   }
 
   button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 18px 36px rgba(0,0,0,0.35);
+    box-shadow: 0 18px 36px rgba(255,90,120,0.45);
   }
 
   button:active {
@@ -76,8 +80,12 @@
   }
 
   .back {
-    margin-top: 26px;
-    background: rgba(0,0,0,0.35);
+    margin-top: 28px;
+    background: linear-gradient(
+      to right,
+      #d6456d,
+      #f27c97
+    );
   }
 
   .hidden {
@@ -88,8 +96,8 @@
     opacity: 0;
     animation: reveal 1.4s ease forwards;
     line-height: 1.75;
-    margin-bottom: 16px;
-    color: #f0f0f0;
+    margin-bottom: 18px;
+    color: #5a1a2c;
   }
 
   p:nth-child(1){animation-delay:0.4s}
@@ -100,9 +108,9 @@
   .heart {
     position: absolute;
     bottom: -20px;
-    font-size: 18px;
+    font-size: 20px;
     animation: floatUp 6s linear forwards;
-    opacity: 0.6;
+    opacity: 0.7;
     z-index: 1;
   }
 
@@ -117,7 +125,7 @@
   }
 
   @keyframes floatUp {
-    from { transform: translateY(0); opacity: 0.8; }
+    from { transform: translateY(0); opacity: 0.9; }
     to { transform: translateY(-120vh); opacity: 0; }
   }
 </style>
@@ -131,7 +139,7 @@
 
 <!-- FIRST SCREEN -->
 <div class="card" id="start">
-  <h2>Just something I wanted to share</h2>
+  <h2>Happy Valentine’s Day 💗</h2>
   <button onclick="openMessage()">What I feel for you 💝</button>
 </div>
 
@@ -177,12 +185,12 @@
     setInterval(() => {
       const heart = document.createElement("div");
       heart.className = "heart";
-      heart.innerText = "💗";
+      heart.innerText = "❤️";
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (14 + Math.random() * 20) + "px";
+      heart.style.fontSize = (16 + Math.random() * 20) + "px";
       document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 6000);
-    }, 500);
+    }, 420);
   }
 </script>
 
